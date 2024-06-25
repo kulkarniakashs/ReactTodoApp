@@ -1,6 +1,8 @@
 import { React, useRef, useState ,useEffect} from 'react'
 import Navbar from './Component/Navbar'
 import { v4 as uuidv4 } from 'uuid';
+import { FaRegEdit } from "react-icons/fa";
+import { MdDelete } from 'react-icons/md';
 
 function App() {
   const [Todo, setTodo] = useState("Add a todo...");
@@ -83,8 +85,8 @@ function App() {
               <div className={items.isCompleted? "text line-through":"text"}>{items.Todo}</div>
               </div>
               <div>
-              <button className='bg-green-500 rounded-sm px-1' onClick={handleEdit} name={items.id}  >Edit</button>
-              <button className='bg-green-500 rounded-sm px-1 mx-2'onClick={handleRemove} name={items.id}>Remove</button>
+              <button className='bg-green-500 rounded-md px-1 ' onClick={handleEdit} name={items.id}><FaRegEdit style={{pointerEvents:'none'}} className='w-6 h-6' /></button>
+              <button className='bg-green-500 rounded-md px-1 mx-2'onClick={handleRemove} name={items.id}><MdDelete style={{pointerEvents:'none'}} className='w-6 h-6'/> </button>
               </div>
             </div>))
           })}
