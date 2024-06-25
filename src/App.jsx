@@ -7,11 +7,14 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [showFinished, SetshowFinished] = useState(true);
   useEffect(() => {
-     setTodos(JSON.parse(localStorage.getItem("todos")));
+    const newTodos = JSON.parse(localStorage.getItem("todos"))
+    if(newTodos){
+      setTodos(newTodos)
+    }
     return () => {
       
     };
-  }, []);
+  }, []);  
   const saveToLS = () =>{
     localStorage.setItem("todos",JSON.stringify(todos));
   }
